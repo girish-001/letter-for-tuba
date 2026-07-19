@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before I Could Say I Love You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:        #22283b;
+    --ink-soft:   #464f6b;
+    --dusk:       #2b2f4f;
+    --rose:       #b98098;
+    --rose-deep:  #8c5b74;
+    --gold:       #b6935f;
+    --paper:      #f4ede4;
+    --paper-deep: #ece1d2;
+    --star:       #f4ede4;
+    --shadow:     rgba(34,40,59,0.18);
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at 20% 0%, #33395c 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 10%, #3a2f52 0%, transparent 50%),
+      linear-gradient(180deg, #1c2036 0%, #21253d 12%, var(--paper) 12%, var(--paper) 100%);
+    background-color: var(--paper);
+    font-family:'Lora', serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- starlight header ---------- */
+  .night{
+    position:relative;
+    height:56vh;
+    min-height:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    padding: 0 6vw;
+  }
+
+  .stars, .stars2{
+    position:absolute;
+    inset:0;
+    background-repeat:repeat;
+    opacity:0.65;
+    animation: drift 90s linear infinite;
+  }
+  .stars{
+    background-image:
+      radial-gradient(1.6px 1.6px at 10% 20%, var(--star) 100%, transparent 60%),
+      radial-gradient(1.2px 1.2px at 30% 70%, var(--star) 100%, transparent 60%),
+      radial-gradient(1.8px 1.8px at 50% 15%, var(--star) 100%, transparent 60%),
+      radial-gradient(1.2px 1.2px at 70% 45%, var(--star) 100%, transparent 60%),
+      radial-gradient(1.5px 1.5px at 85% 65%, var(--star) 100%, transparent 60%),
+      radial-gradient(1.3px 1.3px at 95% 25%, var(--star) 100%, transparent 60%),
+      radial-gradient(1.4px 1.4px at 15% 85%, var(--star) 100%, transparent 60%),
+      radial-gradient(1.1px 1.1px at 60% 90%, var(--star) 100%, transparent 60%);
+    background-size: 520px 420px;
+  }
+  .stars2{
+    background-image:
+      radial-gradient(1px 1px at 25% 35%, var(--star) 100%, transparent 60%),
+      radial-gradient(1px 1px at 45% 80%, var(--star) 100%, transparent 60%),
+      radial-gradient(1px 1px at 65% 20%, var(--star) 100%, transparent 60%),
+      radial-gradient(1px 1px at 90% 55%, var(--star) 100%, transparent 60%);
+    background-size: 340px 300px;
+    opacity:0.4;
+    animation-duration: 140s;
+    animation-direction: reverse;
+  }
+  @keyframes drift{ from{ background-position:0 0; } to{ background-position:-1000px 600px; } }
+
+  .eyebrow{
+    position:relative;
+    z-index:2;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-size:0.78rem;
+    color: #d8b7c5;
+    margin-bottom: 1.4rem;
+  }
+
+  h1.title{
+    position:relative;
+    z-index:2;
+    font-family:'Dancing Script', cursive;
+    font-weight:700;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    color: var(--star);
+    margin:0;
+    line-height:1.05;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+  }
+
+  .subtitle{
+    position:relative;
+    z-index:2;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:#c9b8c4;
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    margin-top:1.1rem;
+    letter-spacing:0.02em;
+  }
+
+  .seal{
+    position:relative;
+    z-index:2;
+    margin-top:2.2rem;
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    background: radial-gradient(circle at 32% 28%, #cf95ad, var(--rose-deep) 65%, #6c4059 100%);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(255,255,255,0.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .seal::before{
+    content:"❦";
+    color: rgba(244,237,228,0.9);
+    font-size:1.35rem;
+  }
+
+  /* ---------- letter body ---------- */
+  main{
+    position:relative;
+    max-width: 700px;
+    margin: -3.5rem auto 0;
+    padding: 0 6vw 6rem;
+  }
+
+  .letter{
+    position:relative;
+    background: var(--paper);
+    border-radius: 2px;
+    padding: clamp(2rem, 6vw, 4.2rem) clamp(1.4rem, 6vw, 3.6rem) 3.5rem;
+    box-shadow: 0 30px 60px -20px var(--shadow);
+  }
+
+  .letter::before{
+    content:"";
+    position:absolute;
+    left:0; right:0; top:0;
+    height:6px;
+    background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--rose) 50%, var(--gold) 80%, transparent);
+    opacity:0.65;
+  }
+
+  .salutation{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.25rem;
+    color: var(--rose-deep);
+    margin: 0 0 2rem;
+  }
+
+  p.story{
+    font-size: 1.08rem;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    margin: 0 0 1.5em;
+    text-align: left;
+  }
+
+  p.story:first-of-type::first-letter{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 3.6rem;
+    font-weight:600;
+    color: var(--rose-deep);
+    float:left;
+    line-height:0.8;
+    padding-right:0.12em;
+    padding-top:0.08em;
+  }
+
+  .divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.9rem;
+    margin: 2.6rem 0;
+    color: var(--gold);
+    opacity:0.8;
+  }
+  .divider::before, .divider::after{
+    content:"";
+    height:1px;
+    width:70px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .divider::after{ background: linear-gradient(90deg, var(--gold), transparent); }
+  .divider span{ font-size:0.85rem; }
+
+  /* ---------- final letter-within-letter ---------- */
+  .inner-letter{
+    margin-top: 3rem;
+    padding: clamp(1.8rem, 5vw, 3rem);
+    background: var(--paper-deep);
+    border: 1px solid rgba(140,91,116,0.25);
+    border-radius: 2px;
+    position:relative;
+  }
+  .inner-letter::before{
+    content:"";
+    position:absolute;
+    top:-16px;
+    left:50%;
+    transform:translateX(-50%);
+    width:32px; height:32px;
+    border-radius:50%;
+    background: radial-gradient(circle at 32% 28%, #cf95ad, var(--rose-deep) 65%, #6c4059 100%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  }
+  .inner-letter .to{
+    font-family:'Dancing Script', cursive;
+    font-size:1.9rem;
+    color: var(--rose-deep);
+    margin: 0.5rem 0 1.4rem;
+    text-align:center;
+  }
+  .inner-letter p.story{ color: var(--ink); }
+  .inner-letter p.story:first-of-type::first-letter{ font-size:1rem; float:none; padding:0; }
+
+  .signoff{
+    margin-top: 2.2rem;
+    text-align:right;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color: var(--rose-deep);
+    font-size:1.1rem;
+  }
+  .signoff strong{
+    display:block;
+    font-family:'Dancing Script', cursive;
+    font-style:normal;
+    font-size:1.7rem;
+    color: var(--ink);
+    margin-top:0.3rem;
+  }
+
+  .closing-quote{
+    margin: 3.5rem auto 0;
+    max-width: 560px;
+    text-align:center;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+    color: var(--rose-deep);
+    line-height:1.6;
+    position:relative;
+    padding: 0 1rem;
+  }
+  .closing-quote::before, .closing-quote::after{
+    content:"❤";
+    display:block;
+    font-size:0.8rem;
+    color: var(--gold);
+    margin: 0 auto 1rem;
+    opacity:0.75;
+  }
+  .closing-quote::after{ margin: 1rem auto 0; }
+
+  footer{
+    text-align:center;
+    padding: 2.5rem 1rem 3rem;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:0.85rem;
+    color: var(--ink-soft);
+    opacity:0.6;
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- scroll reveal ---------- */
+  .reveal{
+    opacity:0;
+    transform: translateY(16px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.in{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    .stars, .stars2{ animation:none; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  @media (max-width: 480px){
+    main{ padding: 0 4vw 4rem; }
+    .letter{ padding: 2.4rem 1.2rem 2.6rem; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="night">
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <p class="eyebrow">a letter I never sent</p>
+    <h1 class="title">Before I Could Say<br>I Love You</h1>
+    <p class="subtitle">Not every love story is shared by two people. Some are carried by one heart alone.</p>
+    <div class="seal" aria-hidden="true"></div>
+  </div>
+
+  <main>
+    <article class="letter">
+
+      <p class="salutation">Around a year ago, I saw her for the first time.</p>
+
+      <p class="story reveal">Around a year ago I saw her first, when I saw her first time I don't know her name and where she is going. I still know what she wore that day.</p>
+
+      <p class="story reveal">After a while, one of my juniors invited me to join a class in <b>Session 7</b>. When I walked in, I saw her. Seeing her after so long made me incredibly happy — it completely made my day.</p>
+
+      <p class="story reveal">By pure luck, our instructor placed me in the same team as her for an activity. It was the first time we spoke, and I finally got the chance to ask her name. She has a really beautiful name, but I'm going to keep it a secret. I don't know if she's reading this story or if someone else is, so I'd rather not reveal it.</p>
+
+      <p class="story reveal">That day, I finally got the chance to talk to her. Our conversation was brief, but those few moments were enough to make my day. After that day, I started visiting her class again and again. There was only one reason I kept going there — and that reason was her.</p>
+
+      <p class="story reveal">If I tell you a little about her, I'd say she's incredibly beautiful. She has long hair, deep and beautiful eyes, and, above all, a smile that can brighten anyone's day. But out of everything, the thing I love the most is her voice. There's something so soft, calming, and comforting about it that every time I hear her speak, I just want to keep listening.</p>
+
+      <div class="divider" aria-hidden="true"><span>❦</span></div>
+
+      <p class="story reveal">Almost every day, I stand outside my street, waiting for her to pass by, hoping to catch just one glimpse of her. And whenever I see her, it instantly makes me happy. Maybe she never notices any of this, but I can't help noticing only her. No matter how many people are around, my eyes always seem to find her.</p>
+
+      <p class="story reveal">Many times, I gather the courage to talk to her. I tell myself that today I'll finally tell her how I feel. But fear always takes over. I keep wondering, <em>What if things don't go the way I hope?</em> So many times, I even walk behind her, thinking, <em>Today is the day. I'll finally say it.</em> But every single time, fear wins, and I turn around without saying a word.</p>
+
+      <p class="story reveal">One day, I was waiting for her as usual. But this time, I had made up my mind. I told myself, <em>No matter what happens today, I'm finally going to tell her how I feel.</em> There was a small shop nearby, and I thought, <em>It wouldn't feel right to go empty-handed. At least I should get her a chocolate.</em> So I asked the shopkeeper, "What chocolates do you have?" He smiled apologetically and said, "Sorry, we're out of chocolates." By the time I turned around, she had already walked a little farther ahead. For a moment, I just stood there, wondering whether I should run after her or let another chance slip away.</p>
+
+      <p class="story reveal">Finally, after gathering every bit of courage I had and silently praying to God, I called out to her from behind. At first, she paused for a moment, then took a few more steps before stopping. She turned around and looked at me. I walked up to her, trying to stay calm despite my racing heart, and asked, "Can I talk to you for two minutes?" She looked at me for a moment and simply replied, "Okay."</p>
+
+      <p class="story reveal">At that moment, I was extremely nervous. My heart was racing, and I could barely think straight. She was walking so fast that I smiled nervously and said, "Could you walk a little slower? Why are you walking so fast?" She slowed down, and after taking a deep breath, I finally said, "——, I've been noticing you for a long time, and I really like you." She listened quietly and then replied, "I'm sorry, but I don't feel the same way." For a moment, I didn't know what to say. Then I smiled and said, "Come on... who says no like that? At least we can be friends. Could you give me your Instagram, Snapchat, WhatsApp, or anything? We can stay in touch." She gently replied, "I'm not active online. I don't use any of those." There wasn't much left to say after that. I simply smiled, said "Bye," and walked away.</p>
+
+      <div class="divider" aria-hidden="true"><span>❦</span></div>
+
+      <p class="story reveal">When I got home, I couldn't stop thinking about that moment. I kept replaying the entire conversation in my mind over and over again. The more I thought about it, the more I felt there might still be a small chance. Maybe I was just overthinking, but the way she had smiled while saying no gave me a little hope. The very next day, I decided to meet her again. Before leaving, I bought my favorite chocolate for her. I wasn't sure if she would accept it, but I wanted to give it a try. I met her again in the same street where we had spoken for the first time. I walked up beside her, smiled, and said, "Hi, ——. How are you? Do you remember me?"</p>
+
+      <p class="story reveal">She smiled and said, "I don't even know your name." I laughed and replied, "Really? I've come to your class so many times. Sir even asked me to help your class, and he called me by my name in front of everyone. You still don't know my name? Do I have to introduce myself now?" She smiled again and said, "Yes." I couldn't help but laugh. Then I introduced myself and told her my name.</p>
+
+      <p class="story reveal">"My name is ____. I'm currently in the fourth year of my graduation, and... I think that's enough for an introduction." She smiled, and for a moment, the conversation felt much more comfortable than before.</p>
+
+      <p class="story reveal">After that, I asked her to tell me something about herself. She smiled and said, "Well, you already know my name." I smiled back and replied, "Yes, I know your name, but that's all I know. I don't know anything else about you." She laughed softly and told me that she was in the second year of her graduation. Then I said, "Oh yes, you mentioned that once in your class." That was one of the best moments of my life. We were walking together, talking like two normal people, and I couldn't stop smiling. It may have been an ordinary walk for her, but for me, it became a memory I knew I would never forget.</p>
+
+      <p class="story reveal">As we kept talking, I asked her if she had Instagram or any other social media account. She smiled and said, "I don't use any of them." Then I asked, "What about your email?" She replied, "No." I laughed and said, "Now you're definitely lying. Everyone in your class has an email account." She smiled and explained, "I don't have a personal phone. We all use the same phone at home, so I can't share any of my accounts." I nodded and said, "That's okay. I won't message you first. Whenever you feel comfortable, you can message me, and then we can talk." She simply smiled, and we continued walking together.</p>
+
+      <p class="story reveal">As we kept walking, she suddenly said, "Okay, bye. People from my neighborhood come through this street. If someone sees us together, it could create problems." I nodded. Just before she left, I took the chocolate out of my pocket and said, "——, this is for you." She gently refused and started to walk away. Without thinking, I lightly held her hand for a moment and said, "——, please." She still didn't take it. So I smiled and said, "Alright, that's okay. I'll just put it in your bag. You can look at it when you get home." Before she could say anything, I carefully slipped the chocolate into her bag.</p>
+
+      <p class="story reveal">Then I walked with her a little farther. Before we reached the end of the street, I said, "——, your class is off tomorrow. If you don't have any plans at home, would you like to meet me at the same time? I know a nice place. After spending some time together, I'll make sure to drop you home before your class would normally end." She gently replied, "I don't really go out." I smiled and said, "Come on... we'll only get to know each other if we spend some time together." She looked at me and said, "Right now, we're just friends. Let's stay friends." I respected her answer and didn't insist any further. We smiled, said goodbye to each other, and went our separate ways. That day, I was genuinely happy. It felt like one of the happiest days of my life. On my way home, I kept thanking God again and again — not because everything had gone the way I wanted, but because I had been given the chance to talk to her, walk beside her, and create a memory that I knew I would always cherish.</p>
+
+      <div class="divider" aria-hidden="true"><span>❦</span></div>
+
+      <p class="story reveal">After that, I went to the same place where we used to meet for several days. I waited every day, hoping she would come, but she never did. I was confused. I kept wondering why she wasn't coming. Had she changed her mind? Or had something happened? Then, on Tuesday, I went to her class, and she was there. The moment I saw her, I felt a little relieved. But at the same time, one thought kept running through my mind — I just hoped she hadn't told her friends about what had happened between us. I didn't want her to feel uncomfortable because of me.</p>
+
+      <p class="story reveal">That day, I decided that instead of waiting somewhere else, I would simply talk to her outside her class while she was leaving. But when she came out, she was walking with two of her friends. Before going there, I had bought a KitKat from a shop near my street. I had planned to give it to her that day. Instead of following her immediately, I took a different route and waited at the corner of the same street where we had met before. I stood there, hoping she would come alone. As I waited, only one thought kept running through my mind: <em>I just hope she hasn't told her friends about us. I hope she comes alone.</em></p>
+
+      <p class="story reveal">But she didn't come alone. She arrived with her two friends. As soon as they reached me, one of her friends looked at me and said, "I need to talk to you." For a moment, I felt nervous, wondering what she wanted to say. Still, I stayed calm, looked at her, and replied, "Okay."</p>
+
+      <p class="story reveal">One of her friends was named Mansi, and the other was Akshara. Mansi looked at me and asked, "Do you like her?" I nodded and said, "Yes." She then said, "But she doesn't feel the same way." I replied, "I know. That's why I only asked if we could be friends." Mansi continued, "Let's say you become friends today. What if, later on, your feelings grow stronger and something happens between you? What if her parents don't accept it?" I tried to explain my point of view and said, "Things usually work out. In my neighborhood, many couples have had love marriages, and eventually their families accepted them." She gently shook her head and said, "Her parents are very strict. If they find out about this, they might stop her from leaving the house. She may not even be allowed to attend classes anymore, and she could lose the chance to complete her course and receive her certificate. Is that really what you want?" The moment I heard those words, I had no answer. I realized that if anything went wrong, she would have to face the consequences, not me. I stood there silently for a few moments, then quietly said, "Okay... bye," and walked away.</p>
+
+      <p class="story reveal">As I was walking away, one of her friends called out to me and said, "Take this chocolate back. The one you gave her... you can give it to someone else." I looked at the chocolate for a moment and quietly replied, "Just throw it away." Then I remembered that I had brought another chocolate for her that day as well. Without saying anything else, I took it out of my pocket and threw it into a nearby empty plot. After that, I turned around and walked away without looking back.</p>
+
+      <p class="story reveal">At that moment, I felt completely heartbroken. I was trying my best to stay strong, but I couldn't. My eyes filled with tears, and every step I took felt heavier than the last. I didn't say another word. I simply walked away, carrying a silence that hurt more than anything else.</p>
+
+      <div class="divider" aria-hidden="true"><span>❦</span></div>
+
+      <p class="story reveal">Some time later, I sent a message to her friend Akshara, hoping to understand what had happened, but she blocked me without replying. A while after that, Mansi created a fake account and messaged me. At first, we had normal conversations, and over time I opened up to her. I told her how deeply I loved —— and shared many things about myself. After listening to everything, Mansi said, "I honestly feel bad for you. I'm sorry she rejected you." Hearing those words didn't change anything, but it felt like, for the first time, someone understood how I was feeling.</p>
+
+      <p class="story reveal">Mansi told me, "I'll try my best to help you meet her again." Hearing that gave me a little hope and made me feel better. A few weeks later, in January, I went to Ujjain on my birthday. Standing there in front of God, I didn't ask for money, success, or anything else. I had only one wish in my heart — I prayed for her. Out of everything I could have asked for, she was the only one I wanted.</p>
+
+      <p class="story reveal">We had made a plan that on the day she received her certificate, I would go and meet her one last time. I wanted to talk to her, gently ask her to reconsider, and at least tell her everything that was still left unsaid. But fate had something else in mind. On the very day she was supposed to receive her certificate, I was in Omkareshwar. The next day was her certificate ceremony, and no matter how badly I wanted to be there, I simply couldn't make it. With that, my dream of meeting her one last time came to an end. It felt as though the final chance I had been waiting for had quietly slipped away forever.</p>
+
+      <p class="story reveal">Mansi told me that she would talk to her for me, and I believe she did. But Akshara advised her not to speak to me anymore, and she chose to listen to that advice.</p>
+
+      <p class="story reveal">Even today, a part of me is still waiting for her. Somewhere in my heart, I still hope that one day our paths will cross again. Whenever I pray, I still find myself asking God for only one thing — her. But sometimes, it feels like He never answers that one prayer. Even so, the memories I have of her remain close to my heart, and no matter how much time passes, I still haven't been able to forget them.</p>
+
+      <p class="story reveal">When I went to Ujjain, I bought two pairs of earrings and two bracelets for ——. I had imagined giving them to her someday, but that day never came. I never got the chance to give them to her. Even today, I still keep those earrings and bracelets safely with me. I don't know if I'll ever be able to give them to her, but I haven't found the heart to let them go. Somewhere deep inside, I still hold on to the hope that maybe, one day, I'll finally be able to place them in her hands.</p>
+
+      <p class="story reveal">For a long time, I kept searching for her social media account. One day, I finally found an account that I thought might belong to her. I wasn't even sure if it was really hers, but I gathered the courage to send a message. "I hope this is your account. If it is, I just want to tell you that I'm still waiting for you." After sending the message, I waited anxiously for a reply. But after some time, I checked the account again and realized that I had been blocked. At that moment, it felt as if my last remaining hope had disappeared. I didn't know whether it was really her account or not, but being blocked was enough to make me believe that the chapter I had been holding on to for so long had finally come to an end.</p>
+
+      <div class="inner-letter reveal">
+        <p class="to">To my loved.....</p>
+
+        <p class="story">If you've somehow found and read this story, there's just one thing I want you to know. I truly loved you, and a part of me still does. It's been a long time since I last saw you, yet I still find myself remembering you and waiting for a day that may never come.</p>
+
+        <p class="story">I know you don't feel the same way, and I respect that. I'm not writing this to change your mind or make you feel guilty. I just have one humble request.</p>
+
+        <p class="story">When I went to Ujjain, I bought two pairs of earrings and two bracelets for you. I was never able to give them to you, but I've kept them safe all this time. If you're comfortable accepting them, it would mean a lot to me. There are no expectations attached — it's simply something I wanted you to have.</p>
+
+        <p class="story">If you ever decide that you'd like to receive them, you can message me on Instagram. If you don't have my ID anymore, you can ask Mansi for it. And if you choose not to contact me, I'll understand. Thank you for the beautiful memories you unknowingly gave me. They'll always have a special place in my heart.</p>
+
+        <p class="signoff">Take care of yourself.<br><br>Goodbye,<strong>I wish you nothing but happiness</strong></p>
+      </div>
+
+      <p class="closing-quote reveal">Before I could say "I love you," life had already written our goodbye.</p>
+
+    </article>
+
+    <footer>a story kept, and finally set down</footer>
+  </main>
+
+  <script>
+    const items = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
